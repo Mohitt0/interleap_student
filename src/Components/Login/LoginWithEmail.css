@@ -1,0 +1,21 @@
+.login-with-email{
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    height: 100%;
+    margin: auto;
+    width: 60%;
+}
+
+.powered-by-interleap{
+    font-size: 12px;
+    font-family: 'ItalicFont', sans-serif;
+    color: #F5F5FF;
+    margin-top: 8px;
+    text-align: center;
+}
+
+.login-with-email .content{
+    /* flex: 1; */
+    width: 100%;
+}

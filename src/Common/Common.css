@@ -1,0 +1,109 @@
+@font-face {
+    font-family: 'CustomFont';
+    src: url('../Fonts/Figtree-VariableFont_wght.ttf') format('truetype');
+}
+
+.option-button {
+    font-weight: 700;
+    font-size: 14px;
+    padding: 0.125rem 0.70rem;
+    border-radius: 0.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #EDEDFF;
+    color: #3838F1;
+    background-color: white;
+    cursor: pointer;
+    width: fit-content;
+    font-family: 'CustomFont', sans-serif;
+}
+
+.delete-button {
+    font-weight: 700;
+    font-size: 14px;
+    padding: 0.125rem 0.70rem;
+    border-radius: 0.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #EDEDFF;
+    color: red;
+    background-color: white;
+    cursor: pointer;
+    width: fit-content;
+    font-family: 'CustomFont', sans-serif;
+}
+
+.default-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background-color: #5050f1;
+    border-radius: 5px;
+    color: white !important;
+    font-size: 0.85rem;
+    transition: background-color 0.2s, color 0.2s;
+    padding: 10px;
+    border: none;
+    font-family: 'CustomFont', sans-serif;
+    cursor: pointer;
+    width: fit-content;
+}
+
+.default-delete-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background-color: red;
+    border-radius: 5px;
+    color: white !important;
+    font-size: 0.85rem;
+    transition: background-color 0.2s, color 0.2s;
+    padding: 10px;
+    border: none;
+    font-family: 'CustomFont', sans-serif;
+    cursor: pointer;
+    width: fit-content;
+}
+
+.default-button:hover {
+    background-color: #191997;
+}
+
+.default-delete-button:hover {
+    background-color: rgb(193, 11, 11);
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.4);
+    border-radius: 50px;
+}
+
+.common-input-field{
+    position: relative;
+    margin-bottom: 5px;
+}
+
+.common-input-field .head{
+    font-weight: 500;
+    text-align: left;
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.error-message{
+    text-align: left;
+    font-size: 12px;
+    margin-top: 4px;
+    color: red;
+    position: absolute;
+    left: 0;
+}
