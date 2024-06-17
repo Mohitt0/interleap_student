@@ -1,0 +1,52 @@
+@font-face {
+    font-family: 'CustomFont';
+    src: url('../../Fonts/Figtree-VariableFont_wght.ttf') format('truetype');
+}
+
+.courses-container {
+    font-family: 'CustomFont', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    height: fit-content;
+}
+
+.courses-container .head {
+    margin: auto;
+    width: 40%;
+    text-align: center;
+}
+
+.courses-container .head span {
+    font-weight: 600;
+    font-size: 30px;
+}
+
+.courses-container .courses-wrapper {
+    display: flex;
+    gap: 20px;
+    width: 80%;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.courses-container .courses-wrapper .course {
+    display: flex;
+    width: 300px;
+    height: 200px;
+    padding: 16px;
+    flex-direction: column;
+    background-color: bisque;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: #050519;
+    font-family: 'CustomFont', sans-serif !important;
+}
+
+.courses-container .courses-wrapper .course .course-name{
+    color: #FCFCFF;
+    font-size: 19px;
+    margin-top: auto;
+}
