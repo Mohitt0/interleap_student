@@ -4,11 +4,13 @@ import './Course.css'
 import axios from 'axios'
 import { Collapse } from '@mui/material'
 import { ReactComponent as Down_Icon } from '../../Assets/Down_Icon.svg'
+import { useNavigate } from 'react-router-dom'
 
 const Course = () => {
 
     const [courseDetails, setCourseDetails] = useState()
     const [drawers, setDrawers] = useState([]);
+    const navigate = useNavigate()
 
     const handleShowChapterSummary = (chapterId) => {
         const newOpenDrawers = [];
@@ -35,29 +37,38 @@ const Course = () => {
         <div
             className='course-container'
             style={{
-                background: `linear-gradient(0deg, rgba(0, 0, 0, 0.80) 0%, rgba(0, 0, 0, 0.80) 100%), url(${TestBackground}) lightgray 50% / cover no-repeat`
+                // background: `linear-gradient(0deg, rgba(0, 0, 0, 0.80) 0%, rgba(0, 0, 0, 0.80) 100%), url(${TestBackground}) lightgray 50% / cover no-repeat`
             }}
         >
             <div className="">
+                {console.log(courseDetails)}
                 <div className="course-heading">
                     Python Prgramming
                 </div>
                 <div className='course-description'>
-                    Become a Python Programmer - L1
+                    9 weeks • 98 hrs • 1500 points
                 </div>
             </div>
             <div className="course-details">
-                <div className="header">
+                {/* <div className="header">
                     <span>Course Plan</span>
-                </div>
+                </div> */}
+                <div className="line"></div>
                 <div className='course-content'>
                     {
                         courseDetails?.children?.map((module, i) => (
                             <>
                                 <div className="module">
                                     <div>
-                                        <span>Module {i + 1} - </span>
-                                        <span>{module.node_name}</span>
+                                        <div className='text-[#F5F5FF]'>
+                                            <span>Module {i + 1} - </span>
+                                            <span>{module.node_name}</span>
+                                        </div>
+                                        <div className='flex gap-2 items-center'>
+                                            <div className='text-[#A7A7A7] text-sm'>12-15 Jun</div>
+                                            <div className='text-[#A7A7A7] text-sm'>95 points</div>
+                                            <div className='text-[#A7A7A7] text-sm'>6 hrs, 1 Test</div>
+                                        </div>
                                     </div>
                                     <div className='expand-icon-container' onClick={(event) => {
                                         event.stopPropagation();
@@ -85,9 +96,13 @@ const Course = () => {
                         ))
                     }
                 </div>
-
+                <div className="line"></div>
                 <div className="button-container">
-                    <button>
+                    <button
+                        onClick={() => {
+                            navigate('/learn')
+                        }}
+                    >
                         Start the Course
                     </button>
                 </div>

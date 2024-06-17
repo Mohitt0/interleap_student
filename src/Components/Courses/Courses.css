@@ -10,7 +10,6 @@
     align-items: center;
     gap: 40px;
     height: fit-content;
-    margin-top: auto;
 }
 
 .courses-container .head {
@@ -24,7 +23,7 @@
     font-size: 30px;
 }
 
-.courses-container .course-wrapper {
+.courses-container .courses-wrapper {
     display: flex;
     gap: 20px;
     width: 80%;
@@ -33,7 +32,7 @@
     justify-content: center;
 }
 
-.courses-container .course-wrapper .course {
+.courses-container .courses-wrapper .course {
     display: flex;
     width: 300px;
     height: 200px;
@@ -41,35 +40,13 @@
     flex-direction: column;
     background-color: bisque;
     border-radius: 10px;
+    cursor: pointer;
+    background-color: #050519;
+    font-family: 'CustomFont', sans-serif !important;
 }
 
-.courses-container .course-wrapper .course .course-heading {
-    color: #E1E7E8;
+.courses-container .courses-wrapper .course .course-name{
+    color: #FCFCFF;
     font-size: 19px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 140%;
-    text-transform: capitalize;
-}
-
-.courses-container .course-wrapper .course .course-description {
-    color: rgba(225, 231, 232, 0.70);
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 140%;
-    text-transform: capitalize;
-    margin-top: 4px;
-}
-
-.courses-container .course-wrapper .course .course-metadata {
-    color: rgba(225, 231, 232, 0.70);
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 140%;
-    text-transform: capitalize;
     margin-top: auto;
-    display: flex;
-    gap: 8px;
 }

@@ -2,20 +2,23 @@ import React from 'react'
 import ReactPlayer from 'react-player'
 import AllRoutes from '../AllRoutes'
 import './Home.css'
+import { ReactComponent as CompanyLogo } from '../Assets/Rooman_Logo_2.svg'
 
 const Home = () => {
 
     return (
         <div className='home-container'>
+            <div className="main-header">
+                <div className="company-logo">
+                    <CompanyLogo />
+                </div>
 
-            {/* <ReactPlayer
-                url="https://vimeo.com/583715912/08c1e486b8"
-                controls={true}
-                width="500px"
-                height="500px"
-            /> */}
+                <div style={{ width: 250 }}></div>
+            </div>
 
-            <AllRoutes/>
+            <div className="home-content">
+                <AllRoutes />
+            </div>
 
         </div>
     )
