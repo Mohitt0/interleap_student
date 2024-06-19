@@ -45,7 +45,11 @@
     font-family: 'CustomFont', sans-serif !important;
 }
 
-.courses-container .courses-wrapper .course .course-name{
+.courses-container .courses-wrapper .course:hover {
+    box-shadow: 0px 220px 62px 0px rgba(0, 0, 0, 0.00), 0px 141px 56px 0px rgba(0, 0, 0, 0.01), 0px 79px 48px 0px rgba(0, 0, 0, 0.05), 0px 35px 35px 0px rgba(0, 0, 0, 0.09), 0px 9px 19px 0px rgba(0, 0, 0, 0.10);
+}
+
+.courses-container .courses-wrapper .course .course-name {
     color: #FCFCFF;
     font-size: 19px;
     margin-top: auto;
