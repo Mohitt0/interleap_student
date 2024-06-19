@@ -22,12 +22,12 @@ function CodeEditor() {
             //   lang: youtubeVideoDetails?.language || 'python',
             //   code_file: JSON.stringify(code)
             // }
-            const transformed = code.split('\n').map(line => line.replace(/^\s+/, match => match.replace(/ {4}/g, '\t'))).join('\n');
-
+            const transformed = code.split('\n').map(line => line.replace(/^\s+/, match => match.replace(/ {4}/g, '    '))).join('\n');
+            console.log(String(transformed))
             const body = {
-                language: "javascript",
+                language: "python",
                 stdin: "string",
-                files: "let p = 10;"
+                files: transformed
             }
 
             // const body = {
@@ -38,9 +38,14 @@ function CodeEditor() {
             // }
             setLoading(true)
 
-            const result = await axios.post('https://careerplatform-onecompiler.onrender.com/run_code', body);
+            const { data } = await axios.post('https://careerplatform-onecompiler.onrender.com/run_code', body);
             // setOutputDetails(result?.data?.result)
-            console.log(result)
+            if(data?.exception){
+                setOutputDetails(false)
+            }
+            else{
+                setOutputDetails(true)
+            }
             setLoading(false)
         }
         catch (e) {
@@ -54,7 +59,18 @@ function CodeEditor() {
             <div className="editor-header">
                 <div className="language">JAVA</div>
                 <div className="button-container">
-                    <button className='editor-button'>
+                    <div className={`flex items-center status uppercase text-w text-xs font-medium ${outputDetails === true ? 'text-green-600' : 'text-red-600'} ml-auto`}>
+                        {
+                            outputDetails === true ?
+                                "Accepted !" :
+                                outputDetails === false ?
+                                    "Error !" :
+                                    outputDetails
+                        }
+                    </div>
+                    <button
+                        className='editor-button'
+                    >
                         CLEAR
                     </button>
                     <button

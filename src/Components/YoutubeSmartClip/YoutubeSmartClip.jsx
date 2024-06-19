@@ -9,21 +9,11 @@ import '../../Fonts/Figtree-VariableFont_wght.ttf'
 import ReactPlayer from 'react-player';
 import { Collapse } from '@mui/material';
 
-function YoutubeSmartClip() {
-
-    const [expand, setExpand] = useState(false)
+function YoutubeSmartClip({expandYoutubeComponent, setExpandYoutubeComponent}) {
 
     return (
-        <Collapse className='youtube-smart-clip-container-wrapper' in={expand} collapsedSize={800}>
+        <Collapse className='w-full h-full ml-5 rounded-[8px]' in={expandYoutubeComponent} collapsedSize={200} timeout={900}>
             <div className="youtube-smart-clip-container">
-                <button
-                    onClick={() => {
-                        setExpand(!expand)
-                    }}
-                    style={{ fontSize: 10, color: 'white' }}
-                >
-                    Expand
-                </button>
                 <div className="w-full flex">
                     <div className="w-full flex gap-2 my-1 items-center">
                         <div className='smart-clip-text'>
@@ -43,7 +33,6 @@ function YoutubeSmartClip() {
                         >
                             <Notes_Logo />
                         </p>
-
                     </div>
                 </div>
                 <div className='video'>
@@ -51,8 +40,8 @@ function YoutubeSmartClip() {
                         url="https://vimeo.com/583715912/08c1e486b8"
                         controls={true}
                         width="100%"
+                        height='300px'
                     />
-
                 </div>
                 <div className="timestamps-container">
                     {/* {

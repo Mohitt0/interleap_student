@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Courses.css'
 import TestBackground from '../../Assets/test_course.jpeg'
 import { useNavigate } from 'react-router-dom'
@@ -6,10 +6,28 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight, faHourglass } from '@fortawesome/free-solid-svg-icons'
 import { ReactComponent as Calendar } from '../../Assets/Calendar.svg'
 import { ReactComponent as Time } from '../../Assets/Time.svg'
+import axios from 'axios'
+import { API } from '../../Config/index'
 
 const Courses = () => {
-    const [courses, setCourses] = useState([1, 2, 3, 4, 5])
+    const [courses, setCourses] = useState([])
     const navigate = useNavigate()
+
+    const getCourses = async () => {
+        try {
+            const { data } = await axios.get(`${API}/course/student-courses?student_id=4`)
+            console.log(data?.data)
+            setCourses(data?.data)
+        }
+        catch (e) {
+            console.log(e.message)
+        }
+    }
+
+    useEffect(() => {
+        getCourses()
+    }, [])
+
     return (
         <div className='courses-container'>
             <div className="head">
@@ -35,12 +53,12 @@ const Courses = () => {
                             </div>
 
                             <div className='text-[#A7A7A7] flex gap-2 items-center text-xs mt-1'>
-                            <FontAwesomeIcon icon={faHourglass} fontSize={14}/>
+                                <FontAwesomeIcon icon={faHourglass} fontSize={14} />
                                 9 Weeks
                             </div>
 
                             <div className="course-name">
-                                Java Full Stack Development
+                                {course?.name}
                             </div>
                             <div className='text-[#C3C3FF] flex gap-1 items-center text-[14px]'>
                                 See Details

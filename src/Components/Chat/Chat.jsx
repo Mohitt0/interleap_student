@@ -1,51 +1,21 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import './Chat.css';
-import { Collapse, Fade, IconButton, List, ListItem, ListItemText, MenuItem, Slide, TextField } from '@mui/material';
+import { Collapse, Fade, TextField } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCode, faDownLeftAndUpRightToCenter, faMicrophone, faPlay, faThumbsDown, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
+import { faMicrophone } from '@fortawesome/free-solid-svg-icons';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 // import CodeEditor from '../CodeEditor/CodeEditor';
-import axios from 'axios';
-import { ReactComponent as Analyze_Icon } from '../../Assets/Analyze_Icon.svg'
-import { ReactComponent as Analyze_Icon_White } from '../../Assets/Analyze_Icon_White.svg'
-import { YoutubeContext } from '../../Context';
-import { ReactComponent as CompanyLogo } from '../../Assets/Company_Logo.svg'
 import Select from 'react-dropdown-select';
 import { ReactComponent as Code } from '../../Assets/Code.svg'
 import { ReactComponent as Avatar } from '../../Assets/Avatar.svg'
 import { ReactComponent as Profile_Picture } from '../../Assets/Profile_Picture.svg'
+import Progress from '../Progress/Progress';
 
-function Chat() {
+function Chat({ courseDetails }) {
 
-    const [age, setAge] = useState('');
     const [modules, setModules] = useState();
     const [topics, setTopics] = useState();
     const [messages, setMessages] = useState([]);
-
-
-    const getCourseDetails = async (courseId) => {
-        try {
-            console.log("Called")
-            const { data } = await axios.get(`https://interleap-course-generation-backend.onrender.com/course/course-details?course_id=${courseId}`)
-            // console.log(data.data.children)
-            const numberedModules = data?.data?.children?.map((module, index) => ({
-                ...module,
-                node_name: `Module ${index + 1} - ${module.node_name}`,
-            }));
-            console.log("Response")
-
-            setModules(numberedModules)
-
-            const numberedTopics = data?.data?.children[0]?.children?.map((module, index) => ({
-                ...module,
-                node_name: `Topic ${index + 1} - ${module.node_name}`,
-            }));
-            setTopics(numberedTopics)
-        }
-        catch (e) {
-            console.log(e.message)
-        }
-    }
 
     const initialMessage = () => {
         setMessages((m) => [
@@ -64,33 +34,11 @@ function Chat() {
         initialMessage()
     }, [])
 
-    useEffect(() => {
-        getCourseDetails(1)
-    }, [])
-
     return (
         <Fade in={true} timeout={500}>
 
             <div className="chat-container">
-                {console.log(messages)}
-                <div className='chat-header w-full flex gap-2 px-2'>
-                    <Select
-                        className='select-topic'
-                        options={modules}
-                        labelField="node_name"
-                        valueField="node_id"
-                        onChange={(values) => console.log(values)}
-                        menuClassName="custom-menu"
-                    />
-                    <Select
-                        className='select-topic'
-                        options={topics}
-                        labelField="node_name"
-                        valueField="node_id"
-                        onChange={(values) => console.log(values)}
-                        menuClassName="custom-menu"
-                    />
-                </div>
+                <Progress courseDetails={courseDetails} />
                 <div className="chats" style={{}} >
                     <TransitionGroup >
                         {messages.map((item, i) => (
@@ -112,7 +60,18 @@ function Chat() {
 
                 <div className="flex flex-col w-full px-2">
                     <div className='flex gap-2 px-3 pb-2'>
-                        <button className='recommendation'>
+                        <button
+                            className='recommendation'
+                            onClick={() => {
+                                setMessages((m) => [
+                                    ...m,
+                                    {
+                                        sender: "user",
+                                        message: "Got It!"
+                                    }
+                                ])
+                            }}
+                        >
                             Got It!
                         </button>
                     </div>
