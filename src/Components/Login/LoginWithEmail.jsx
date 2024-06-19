@@ -51,7 +51,8 @@ function LoginWithEmail({ setIsloggedIn }) {
             })
             setValidateLoading(false)
             // setIsloggedIn(true)
-            navigate('/courses')
+            localStorage.setItem("student_data", JSON.stringify(data.data))
+            navigate('/')
         }
         catch (e) {
             if (e.response) {

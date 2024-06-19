@@ -70,6 +70,14 @@ function Chat({ courseDetails }) {
                                         message: "Got It!"
                                     }
                                 ])
+                                setMessages((m) => [
+                                    ...m,
+                                    {
+                                        sender: "avatar",
+                                        message: "Before we get started, here are some simple controls highlighted for you, in this Chat Panel, to check your Course Progress and access specific modes like Code Editor which can appear depending on the current learning context."
+                                    }
+                                ])
+                                
                             }}
                         >
                             Got It!
