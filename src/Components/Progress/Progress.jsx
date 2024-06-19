@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Select from 'react-dropdown-select'
+import './Progress.css'
 
 const Progress = ({ courseDetails }) => {
 

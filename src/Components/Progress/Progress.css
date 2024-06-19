@@ -1,8 +1,8 @@
 
 .select-topic{
-    border: none;
+    border: none !important;
     background-color: #F5F5FF;
-    border-radius: 8px;
+    border-radius: 8px !important;
     /* width: 100%; */
     font-weight: 600;
 }
