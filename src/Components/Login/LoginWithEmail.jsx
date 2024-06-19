@@ -50,8 +50,8 @@ function LoginWithEmail({ setIsloggedIn }) {
                 otp: Number(OTP)
             })
             setValidateLoading(false)
-            setIsloggedIn(true)
-            navigate('/home')
+            // setIsloggedIn(true)
+            navigate('/courses')
         }
         catch (e) {
             if (e.response) {
@@ -64,15 +64,16 @@ function LoginWithEmail({ setIsloggedIn }) {
 
     return (
         <div className="login-with-email">
-            <div style={{display:'flex', flexDirection:'column'}}>
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
                 <div className="company-name" style={{ marginBottom: 6 }}>
                     <CompanyLogo2 />
                 </div>
                 <span className='powered-by-interleap'>powered by Interleap</span>
             </div>
             <div className='content'>
+                <div className='mb-5 font-semibold'>Enter You Email ID</div>
                 <div className='common-input-field' style={{ width: '100%' }}>
-                    <div className='head'>Email*</div>
+                    {/* <div className='head'>Email*</div> */}
                     <Input
                         type='email'
                         value={email}
@@ -89,8 +90,8 @@ function LoginWithEmail({ setIsloggedIn }) {
                 </div>
                 {
                     sendOTP ?
-                        <div style={{ width: '100%', marginTop: 15, display:'flex', flexDirection:'column', alignItems:'center' }}>
-                            <div style={{width:'100%'}} className='common-input-field'>
+                        <div style={{ width: '100%', marginTop: 15, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                            <div style={{ width: '100%' }} className='common-input-field'>
                                 <div className='head'>Enter OTP</div>
                                 <Input
                                     type='number'
@@ -108,12 +109,15 @@ function LoginWithEmail({ setIsloggedIn }) {
                             </div>
                             {
                                 validateLoading ?
-                                    <Button
+                                    <button
+                                        className='w-full bg-white text-[#050519] rounded font-semibold text-lg p-1'
 
-                                        style={{ width: 120, marginTop:25}}
-                                    ><CircularProgress size={18} color="inherit" /></Button>
+                                        style={{ width: 120, marginTop: 25 }}
+                                    ><CircularProgress size={18} color="inherit" /></button>
                                     :
-                                    <Button
+                                    <button
+                                        className='w-full bg-white text-[#050519] rounded font-semibold text-lg p-1'
+
                                         onClick={() => {
                                             if (OTP) {
                                                 validateOtp()
@@ -123,21 +127,21 @@ function LoginWithEmail({ setIsloggedIn }) {
                                                 setShowOtpErrorMessage(true)
                                             }
                                         }}
-                                        style={{ width: 120,  marginTop:25}}
-                                    >Submit</Button>
+                                        style={{ width: 120, marginTop: 25 }}
+                                    >Submit</button>
                             }
 
                         </div>
                         :
-                        <div style={{ marginTop: 25}}>
+                        <div className='mt-[25px] w-full'>
                             {
                                 loading ?
-                                    <Button
-                                        style={{ width: 120 }}
-                                    ><CircularProgress size={18} color="inherit" /></Button>
+                                    <button
+                                        className='w-full bg-white text-[#050519] rounded font-semibold text-md'
+                                    ><CircularProgress size={18} color="inherit" /></button>
                                     :
-                                    <Button
-                                        style={{ width: 120 }}
+                                    <button
+                                        className='w-full bg-white text-[#050519] rounded font-semibold text-base p-1'
                                         onClick={() => {
                                             if (email) {
                                                 sendOtpToEmail()
@@ -147,7 +151,7 @@ function LoginWithEmail({ setIsloggedIn }) {
                                                 setShowErrorMessage(true)
                                             }
                                         }}
-                                    >Request OTP</Button>
+                                    >Continue With Email</button>
                             }
                         </div>
                 }
