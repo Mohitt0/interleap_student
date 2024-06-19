@@ -31,7 +31,7 @@ const Courses = () => {
     return (
         <div className='courses-container'>
             <div className="head">
-                <span className=''>Welcome, Rahul! </span>
+                <span className=''>Welcome, Dharmaraj! </span>
                 <span style={{ color: 'rgba(0, 0, 0, 0.50)' }}>Pick any of your enrolled course to start AI assisted learning.</span>
             </div>
             <div className="courses-wrapper">

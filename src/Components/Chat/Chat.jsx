@@ -21,7 +21,7 @@ function Chat({ courseDetails }) {
         setMessages((m) => [
             {
                 sender: "avatar",
-                message: "Hey Rahul! 👋🏼"
+                message: "Hey Dharmaraj! 👋🏼"
             },
             {
                 sender: "avatar",
