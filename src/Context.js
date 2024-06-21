@@ -1,22 +1,18 @@
 import React, { createContext, useEffect, useState } from 'react';
 
 // Create a new context
-export const YoutubeContext = createContext();
+export const GeneralContext = createContext();
 
 // Provider component
-export const YoutubeProvider = ({ children }) => {
+export const CourseProvider = ({ children }) => {
 
-    const [collapse, setCollapse] = useState(true);
-    const [youtubeVideoDetails, setYoutubeVideoDetails] = useState();
-    const [currentTimeStamp, setCurrentTimeStamp] = useState(0);
-    const [chatYoutubePlayer, setChatYoutubePlayer] = useState();
-    const [selectedChapter, setSelectedChapter] = useState({ id: 1, timestamp: 0 });
-    const [slideChatHistory, setSlideChatHistory] = useState(false);
-    const [timestampInterval, setTimestampInterval] = useState()
+    const [currentCourse, setCurrentCourse] = useState()
+    const [selectedCourse, setSelectedCourse] = useState()
+    const [studentInfo, setStudentInfo] = useState()
 
     return (
-        <YoutubeContext.Provider value={{ timestampInterval, setTimestampInterval, collapse, setCollapse, youtubeVideoDetails, setYoutubeVideoDetails, currentTimeStamp, setCurrentTimeStamp, chatYoutubePlayer, setChatYoutubePlayer, selectedChapter, setSelectedChapter, slideChatHistory, setSlideChatHistory }}>
+        <GeneralContext.Provider value={{ currentCourse, setCurrentCourse, studentInfo, setStudentInfo, selectedCourse, setSelectedCourse }}>
             {children}
-        </YoutubeContext.Provider>
+        </GeneralContext.Provider>
     );
 };

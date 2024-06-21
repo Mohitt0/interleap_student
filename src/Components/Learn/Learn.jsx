@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Chat from '../Chat/Chat'
 import './Learn.css'
 import YoutubeSmartClip from '../YoutubeSmartClip/YoutubeSmartClip'
@@ -6,6 +6,7 @@ import { CircularProgress, Slide } from '@mui/material'
 import CodeEditor from '../CodeEditor/CodeEditor'
 import axios from 'axios'
 import { API } from '../../Config'
+import { GeneralContext } from '../../Context'
 
 const Learn = () => {
 
@@ -16,6 +17,7 @@ const Learn = () => {
     const [loading, setLoading] = useState(false)
     const [expandYoutubeComponent, setExpandYoutubeComponent] = useState(false)
     const [courseDetails, setCourseDetails] = useState()
+    const { selectedCourse, studentInfo } = useContext(GeneralContext);
 
     const handleShowYoutubeComponent = (t) => {
         setShowYoutubeComponent(t)
@@ -26,10 +28,10 @@ const Learn = () => {
         setCodeEditor(true)
     }
 
-    const continueCourse = async (courseId, studentID) => {
+    const continueCourse = async () => {
         try {
             setLoading(true)
-            const { data } = await axios.get(`${API}/course/continue-course?course_id=${courseId}&student_id=${studentID}`)
+            const { data } = await axios.get(`${API}/course/continue-course?course_id=${selectedCourse?.course_id}&student_id=${studentInfo?.student_id}`)
             setCourseDetails(data.data)
             setLoading(false)
         }
