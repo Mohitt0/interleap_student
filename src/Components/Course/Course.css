@@ -4,7 +4,7 @@
 }
 
 .course-container {
-    height: 100%;
+    height: 95%;
     display: flex;
     width: 690px;
     padding: 15px;
@@ -12,11 +12,11 @@
     flex-direction: column;
     justify-content: space-between;
     font-family: 'CustomFont', sans-serif;
-    background-color: #050519;
+    background-color: white;
 }
 
 .course-container .course-heading {
-    color: #F5F5FF;
+    color: #050519;
     font-size: 28px;
     font-style: normal;
     font-weight: 600;
@@ -25,7 +25,7 @@
 }
 
 .course-container .course-description {
-    color: #A7A7A7;
+    color: #6E6E6F;
     font-size: 14px;
     font-style: normal;
     font-weight: 600;
@@ -60,17 +60,16 @@
 }
 
 .course-container .course-details .module {
-    padding: 10px 0px;
+    padding: 12px 10px;
     justify-content: space-between;
     display: flex;
     align-items: center;
     font-family: 'CustomFont', sans-serif;
-    
 }
 
 .course-container .course-details .module span{
-    color: #EAEFF3;
-    font-size: 14px;
+    /* color: #6E6E6F; */
+    font-size: 16px;
     font-weight: 600;
     line-height: 140%;
     text-transform: capitalize;
@@ -88,7 +87,7 @@
 }
 
 .course-container .course-details .chapter-summary {
-    background-color: #272727;
+    background-color: #F4F4F4;
     border-radius: 5px;
     font-size: 0.75rem;
     line-height: 18px;
@@ -97,28 +96,19 @@
 }
 
 .course-container .course-details .chapter-summary .topic {
-    color: #E1E7E8;
-    font-size: 13px;
-    font-weight: 600;
+    color: #6E6E6F;
+    font-size: 14px;
+    font-weight: 500;
     line-height: 140%;
     text-transform: capitalize;
-    padding: 6px 0px;
+    padding: 9px 2px;
+    display: flex;
+    font-family: 'CustomFont', sans-serif;
 }
 
-.course-container .button-container{
-    margin-top: 30px;
-}
-
-.course-container .button-container button{
-    padding: 5px 10px;
-    background-color: white;
-    font-size: 13px;
-    font-weight: 700;
-    border-radius: 4px;
-}
 
 .line{
-    background-color: #E1E7E8;
+    background-color: #D7D7D7;
     opacity: 0.3;
     height: 1px;
     width: 100%;

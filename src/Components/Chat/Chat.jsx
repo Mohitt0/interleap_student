@@ -10,6 +10,7 @@ import { ReactComponent as Code } from '../../Assets/Code.svg'
 import { ReactComponent as Avatar } from '../../Assets/Avatar.svg'
 import { ReactComponent as Profile_Picture } from '../../Assets/Profile_Picture.svg'
 import Progress from '../Progress/Progress';
+import { GeneralContext } from '../../Context';
 
 function Chat({ courseDetails }) {
 
@@ -17,17 +18,21 @@ function Chat({ courseDetails }) {
     const [topics, setTopics] = useState();
     const [messages, setMessages] = useState([]);
 
+    const { studentInfo } = useContext(GeneralContext);
+
     const initialMessage = () => {
-        setMessages((m) => [
-            {
-                sender: "avatar",
-                message: "Hey Dharmaraj! 👋🏼"
-            },
-            {
-                sender: "avatar",
-                message: "I'm your AI assistant and I will be helping you learn Java Full Stack Development in faster, simpler and more practical ways. You can call me Praxi."
-            },
-        ])
+        setTimeout(() => {
+            setMessages((m) => [
+                {
+                    sender: "avatar",
+                    message: `Hey ${studentInfo?.name}! 👋🏼`
+                },
+                {
+                    sender: "avatar",
+                    message: "I'm your AI assistant and I will be helping you learn Java Full Stack Development in faster, simpler and more practical ways. You can call me Praxi."
+                },
+            ])
+        }, 500);
     }
 
     useEffect(() => {
@@ -38,6 +43,7 @@ function Chat({ courseDetails }) {
         <Fade in={true} timeout={500}>
 
             <div className="chat-container">
+                {console.log(studentInfo)}
                 <Progress courseDetails={courseDetails} />
                 <div className="chats" style={{}} >
                     <TransitionGroup >
@@ -77,7 +83,7 @@ function Chat({ courseDetails }) {
                                         message: "Before we get started, here are some simple controls highlighted for you, in this Chat Panel, to check your Course Progress and access specific modes like Code Editor which can appear depending on the current learning context."
                                     }
                                 ])
-                                
+
                             }}
                         >
                             Got It!

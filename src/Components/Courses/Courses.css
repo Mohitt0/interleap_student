@@ -10,6 +10,7 @@
     align-items: center;
     gap: 40px;
     height: fit-content;
+    width: 80%;
 }
 
 .courses-container .head {
@@ -18,9 +19,8 @@
     text-align: center;
 }
 
-.courses-container .head span {
+.courses-container .head div {
     font-weight: 600;
-    font-size: 30px;
 }
 
 .courses-container .courses-wrapper {
@@ -41,7 +41,7 @@
     background-color: bisque;
     border-radius: 10px;
     cursor: pointer;
-    background-color: #050519;
+    background-color: white;
     font-family: 'CustomFont', sans-serif !important;
 }
 
@@ -50,7 +50,7 @@
 }
 
 .courses-container .courses-wrapper .course .course-name {
-    color: #FCFCFF;
-    font-size: 19px;
-    margin-top: auto;
+    color: #050519;
+    font-size: 22px;
+    font-weight: 600;
 }
