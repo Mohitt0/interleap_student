@@ -1,20 +1,128 @@
 
+  
+  .dropdown-header {
+    display: flex;
+    line-height: 14.4px;
+    padding: 8px;
+    align-items: center;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 4px !important;
+    /* width: 100%; */
+    color: #F5F5FF;
+    font-weight: 600;
+  }
+  .dropdown-header2 {
+    display: flex;
+    line-height: 14.4px;
+    padding: 8px;
+    align-items: center;
+    font-size: 12px;
+    cursor: pointer;
+    /* background-color: #F5F5FF; */
+    border-radius: 4px !important;
+    /* width: 100%; */
+   
+    font-weight: 600;
+  }
 .select-topic{
     border: none !important;
-    background-color: #F5F5FF;
+    background-color: #F4F4F4;
     border-radius: 8px !important;
     /* width: 100%; */
+    color: black  ;
     font-weight: 600;
+
+}
+.select-topic ::placeholder{
+    color: black;
 }
 
-.react-dropdown-select-dropdown {
-    padding: 10px; /* Add padding */
-    cursor: pointer; /* Change cursor */
-    width: 100% !important;
+
+
+
+.dropdown {
+ 
+  /* transition: max-height 0.3s ease-out, background-color 0.3s ease-in-out; */
+ 
+  /* box-shadow: 0 10px 25px rgba(0,0,0,.1); */
+  background-color: white;
+  cursor: pointer;
+}
+.dropdown.open{
+  border-radius: 8px;
+  background-color: #F4F4F4;
 }
 
-.react-dropdown-select-dropdown span{
-    border: none;
-    font-family: 'CustomFont', sans-serif;
-    font-weight: 600;
+.dropdown-course {
+  padding: 15px;
+  /* cursor: pointer; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
 }
+.dropdown-topic {
+  padding: 8px;
+  /* cursor: pointer; */
+  display: grid;
+
+  align-items: center;
+
+}
+.dropdown-body {
+  padding: 5px;
+  border-top: 1px solid #E5E8EC;
+  display: none;
+  opacity: 0;
+}
+
+.dropdown-body.open {
+  display: block;
+  opacity: 1;
+
+
+}
+
+.dropdown-item {
+  padding: 10px;
+  color: #6E6E6F;
+}
+
+.dropdown-item:hover {
+  cursor: pointer;
+}
+
+.scrollable-div {
+  overflow-y: auto;
+ 
+  scroll-behavior: smooth;
+  
+}
+
+
+.scrollable-div::-webkit-scrollbar {
+  display: none;
+}
+
+
+.scrollable-div {
+  -ms-overflow-style: none;
+  scrollbar-width: none; 
+}
+
+.icon {
+  /* font-size: 13px; */
+  
+  transform: rotate(0deg);
+  /* transition: all .5s ease; */
+}
+
+.icon.open {
+  transform: rotate(180deg);
+  color: #050519;
+}
+
+/* .dropdown-course-inner-div h3.open{
+  color: #050519;
+} */

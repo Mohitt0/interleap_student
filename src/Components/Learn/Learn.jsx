@@ -29,7 +29,7 @@ const Learn = () => {
     const continueCourse = async (courseId, studentID) => {
         try {
             setLoading(true)
-            const { data } = await axios.get(`${API}/course/continue-course?course_id=${courseId}&student_id=${studentID}`)
+            const { data } = await axios.get(`${API}/course/continue-course?course_id=${courseId}&student_id=5`)
             setCourseDetails(data.data)
             setLoading(false)
         }
